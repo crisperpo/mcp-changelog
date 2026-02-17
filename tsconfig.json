@@ -7,25 +7,25 @@
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    
+
     // Interop & compatibility
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    
+
     // Emit options
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    
+
     // Type safety & checks
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    
+
     // Node.js types
     "types": ["node"]
   },

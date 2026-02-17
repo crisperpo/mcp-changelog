@@ -1,5 +1,6 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
 
 export default tseslint.config(
   {
@@ -7,10 +8,7 @@ export default tseslint.config(
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs'],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-    ],
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommendedTypeChecked, prettierConfig],
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -20,31 +18,34 @@ export default tseslint.config(
     rules: {
       // ===== Code Style =====
       // Enforce single quotes
-      'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
+      quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
 
       // Enforce semicolons
-      'semi': ['error', 'always'],
+      semi: ['error', 'always'],
       // Comma and spacing
       'comma-dangle': ['error', 'always-multiline'],
-      'comma-spacing': ['error', { 'before': false, 'after': true }],
-      'indent': ['error', 2, { 'SwitchCase': 1 }],
+      'comma-spacing': ['error', { before: false, after: true }],
+      indent: ['error', 2, { SwitchCase: 1 }],
       'no-trailing-spaces': 'error',
       'eol-last': ['error', 'always'],
       'object-curly-spacing': ['error', 'always'],
       'array-bracket-spacing': ['error', 'never'],
-      'arrow-spacing': ['error', { 'before': true, 'after': true }],
-      'keyword-spacing': ['error', { 'before': true, 'after': true }],
+      'arrow-spacing': ['error', { before: true, after: true }],
+      'keyword-spacing': ['error', { before: true, after: true }],
       'space-before-blocks': ['error', 'always'],
       'space-infix-ops': 'error',
-      'space-before-function-paren': ['error', {
-        'anonymous': 'always',
-        'named': 'never',
-        'asyncArrow': 'always',
-      }],
-      'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
-      'brace-style': ['error', '1tbs', { 'allowSingleLine': true }],
-      'max-len': ['warn', { 'code': 120, 'ignoreUrls': true, 'ignoreStrings': true }],
-      
+      'space-before-function-paren': [
+        'error',
+        {
+          anonymous: 'always',
+          named: 'never',
+          asyncArrow: 'always',
+        },
+      ],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      'max-len': ['warn', { code: 120, ignoreUrls: true, ignoreStrings: true }],
+
       // ===== Best Practices =====
       'no-debugger': 'error',
       'no-var': 'error',
@@ -62,17 +63,17 @@ export default tseslint.config(
       'require-await': 'error',
       'no-async-promise-executor': 'error',
       'no-promise-executor-return': 'error',
-      
+
       // ===== Code Quality =====
       'no-unused-expressions': 'error',
-      'no-param-reassign': ['error', { 'props': false }],
+      'no-param-reassign': ['error', { props: false }],
       'no-shadow': 'off', // Turned off in favor of TS rule
       'consistent-return': 'off', // TS handles this
       'default-case': 'error',
       'default-case-last': 'error',
       'dot-notation': 'error',
-      'eqeqeq': ['error', 'always'],
-      'no-else-return': ['error', { 'allowElseIf': false }],
+      eqeqeq: ['error', 'always'],
+      'no-else-return': ['error', { allowElseIf: false }],
       'no-eval': 'error',
       'no-implied-eval': 'error',
       'no-lone-blocks': 'error',
@@ -86,14 +87,17 @@ export default tseslint.config(
       'no-unneeded-ternary': 'error',
       'no-useless-concat': 'error',
       'no-useless-return': 'error',
-      'yoda': 'error',
-      
+      yoda: 'error',
+
       // ===== TypeScript Specific =====
-      '@typescript-eslint/no-unused-vars': ['error', { 
-        'argsIgnorePattern': '^_',
-        'varsIgnorePattern': '^_',
-        'caughtErrorsIgnorePattern': '^_',
-      }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
       '@typescript-eslint/no-shadow': 'error',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -110,28 +114,31 @@ export default tseslint.config(
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
-      '@typescript-eslint/consistent-type-imports': ['error', { 
-        'prefer': 'type-imports',
-        'fixStyle': 'inline-type-imports',
-      }],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          fixStyle: 'inline-type-imports',
+        },
+      ],
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-      '@typescript-eslint/array-type': ['error', { 'default': 'array-simple' }],
+      '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
       '@typescript-eslint/naming-convention': [
         'error',
         {
-          'selector': 'variable',
-          'format': ['camelCase', 'UPPER_CASE', 'PascalCase'],
-          'leadingUnderscore': 'allow',
+          selector: 'variable',
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+          leadingUnderscore: 'allow',
         },
         {
-          'selector': 'function',
-          'format': ['camelCase', 'PascalCase'],
+          selector: 'function',
+          format: ['camelCase', 'PascalCase'],
         },
         {
-          'selector': 'typeLike',
-          'format': ['PascalCase'],
+          selector: 'typeLike',
+          format: ['PascalCase'],
         },
       ],
     },
-  }
+  },
 );
