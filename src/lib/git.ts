@@ -20,3 +20,8 @@ export function gitChangedFiles(root: string, staged?: boolean): string[] {
   const out = sh(`git diff --name-only ${staged ? '--staged' : ''}`, root);
   return out ? out.split('\n') : [];
 }
+
+export function gitChangedFilesBetween(root: string, baseRef: string, headRef: string) {
+  const out = sh(`git diff --name-only ${baseRef} ${headRef}`, root);
+  return out ? out.split('\n') : [];
+}
