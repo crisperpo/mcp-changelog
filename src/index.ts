@@ -1,2 +1,10 @@
-// MCP Changelog Server
-console.log('Hello from MCP Changelog');
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+
+const server = new McpServer({
+  name: 'changelog-helper',
+  version: '0.1.0',
+});
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
