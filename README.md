@@ -28,6 +28,25 @@ Run in development mode:
 pnpm dev
 ```
 
+## Adding to Your Project
+
+Add this MCP server to your VS Code settings. Open your workspace settings (`.vscode/settings.json`):
+
+```json
+{
+  "mcp.servers": {
+    "changelog": {
+      "command": "node",
+      "args": ["<absolute-path-to-mcp-changelog>/dist/index.js"]
+    }
+  }
+}
+```
+
+Replace `<absolute-path-to-mcp-changelog>` with the actual path to this repository.
+
+Restart VS Code to load the server.
+
 ## Configuration
 
 Create a `.changelogrc.json` in your repository root to customize:
