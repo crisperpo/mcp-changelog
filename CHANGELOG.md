@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-02-18
 
 ### Added
+
 - Initial release of mcp-changelog
 - `changelog_suggest` tool to analyze git changes and suggest changelog entries
 - `changelog_apply` tool to add entries to CHANGELOG.md under Unreleased section

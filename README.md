@@ -62,6 +62,7 @@ Create a `.changelogrc.json` in your repository root to customize:
 Suggests a changelog entry based on current git changes.
 
 **Parameters:**
+
 - `staged` (optional) - Only analyze staged changes
 - `cwd` (optional) - Working directory
 
@@ -72,6 +73,7 @@ Suggests a changelog entry based on current git changes.
 Adds an entry to your changelog.
 
 **Parameters:**
+
 - `entryLine` - The changelog entry text
 - `section` - One of: `Added`, `Changed`, `Fixed`, `Breaking Changes` (default: `Changed`)
 - `cwd` (optional) - Working directory
@@ -83,6 +85,7 @@ Adds an entry to your changelog.
 Checks if changelog was updated when user-facing files changed.
 
 **Parameters:**
+
 - `baseRef` - Base git reference
 - `headRef` - Head git reference
 - `cwd` (optional) - Working directory
